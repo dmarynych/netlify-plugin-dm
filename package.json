@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.25.0",
+    "js-yaml": "^4.1.0",
     "simple-oauth2": "^4.3.0"
   },
   "devDependencies": {},

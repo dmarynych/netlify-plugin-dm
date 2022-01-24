@@ -22,7 +22,7 @@ async function getRoutes(tenantId) {
   }
 }
 
-async function createInboundRoute(vaultApiUrl, tenantId, route, refreshToken) {
+async function createRoute(vaultApiUrl, tenantId, route, refreshToken) {
   const accessToken = await getAccessToken(refreshToken);
 
   const url = `${vaultApiUrl}/rule-chains`;
@@ -36,22 +36,26 @@ async function createInboundRoute(vaultApiUrl, tenantId, route, refreshToken) {
   return response.data.data;
 }
 
-async function updateInboundRoute(vaultApiUrl, tenantId, route, refreshToken) {
-  const accessToken = await getAccessToken(refreshToken);
-
-  const url = `${vaultApiUrl}/rule-chains/${route.id}`;
+async function updateRoute(tenantId, route) {
+  console.log('updateRoute', route.data)
+  const accessToken = await getAccessToken();
+  const url = `${vaultApiUrl}/rule-chains/${route.data[0].id}`;
   const params = {
     method: 'PUT',
     headers: makeHeaders(accessToken, tenantId),
-    data: route,
+    data: route.data,
   };
-  const response = await fetchJSONApi(url, params);
 
-  return response.data.data;
+  try {
+    const response = await fetchJSONApi(url, params);
+    return response.data.data;
+  } catch (error) {
+    console.log('updateRoute error', error);
+  }
 }
 
 module.exports = {
   getRoutes,
-  updateInboundRoute,
-  createInboundRoute,
+  updateRoute,
+  createRoute,
 }
