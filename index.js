@@ -27,7 +27,10 @@ module.exports = {
     const routeConfig = getRouteConfig();
 
     if(routeConfig) {
-      await updateRoute(VGS_VAULT_ID, routeConfig);
+      console.log('starting route update')
+      const res = await updateRoute(VGS_VAULT_ID, routeConfig);
+
+      console.log('finish route update!', res)
     }
   },
 }
