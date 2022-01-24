@@ -37,20 +37,22 @@ async function createRoute(vaultApiUrl, tenantId, route, refreshToken) {
 }
 
 async function updateRoute(tenantId, route) {
-  console.log('updateRoute', route.data)
+  console.log('updateRoute', route.data[0])
   const accessToken = await getAccessToken();
   const url = `${vaultApiUrl}/rule-chains/${route.data[0].id}`;
   const params = {
     method: 'PUT',
     headers: makeHeaders(accessToken, tenantId),
-    data: route.data,
+    data: {
+      data: route.data[0]
+    },
   };
 
   try {
     const response = await fetchJSONApi(url, params);
     return response.data.data;
   } catch (error) {
-    console.log('updateRoute error', error);
+    console.log('updateRoute error', error.response.data);
   }
 }
 
