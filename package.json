@@ -1,0 +1,28 @@
+{
+  "name": "netlify-plugin-dm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "simple-oauth2": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmarynych/netlify-plugin-dm.git"
+  },
+  "keywords": [
+    "netlify-plugin",
+    "netlify"
+  ],
+  "author": "dima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmarynych/netlify-plugin-dm/issues"
+  },
+  "homepage": "https://github.com/dmarynych/netlify-plugin-dm#readme"
+}

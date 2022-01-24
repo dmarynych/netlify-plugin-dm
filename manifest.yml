@@ -1,0 +1,8 @@
+name: netlify-plugin-dm
+inputs:
+  - name: vaultId
+    description: vaultId
+  - name: clientId
+    description: clientId
+  - name: clientSecret
+    description: clientSecret
